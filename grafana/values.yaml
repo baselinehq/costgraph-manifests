@@ -1,0 +1,8 @@
+persistence:
+  type: pvc
+  enabled: true
+
+plugins:
+  - marcusolsson-treemap-panel
+  - netsage-sankey-panel
+  - volkovlabs-echarts-panel
