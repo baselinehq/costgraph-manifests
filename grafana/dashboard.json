@@ -65,7 +65,7 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "## Is this the best dashboard?\n\nAs much as Prometheus and Grafana are a standard, there are limits to its dashboard capabilities with its columnar driven data pattern.\n\nIt is recommended to use the Superset dashboard if you desire finer metrics and better visuals, this will work just fine for most of your needs.\n\n\n## Does this get updated?\n\nIt might after a while. Check out the [costgraph-grafana repository](https://github.com/baselinehq/costgraph-grafana) for new updates to the dashboard json.",
+        "content": "## Is this the best dashboard?\n\nAs much as Prometheus and Grafana are a standard, there are limits to its dashboard capabilities with its columnar driven data pattern.\n\nIt is recommended to use the Superset dashboard if you desire finer metrics and better visuals, this will work just fine for most of your needs.\n\n\n## Does this get updated?\n\nIt might after a while. Check out the [costgraph-manifests repository](https://github.com/baselinehq/costgraph-manifests) for new updates to the dashboard json.",
         "mode": "markdown"
       },
       "pluginVersion": "11.5.2",
@@ -112,8 +112,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -184,8 +183,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -226,7 +224,7 @@
               },
               "disableTextWrap": false,
               "editorMode": "code",
-              "expr": "sum(costgraph_namespace_recommendation_current_spend - costgraph_namespace_recommendation_new_spend)",
+              "expr": "sum(costgraph_namespace_recommendation_total_resource_savings_amount)",
               "fullMetaSearch": false,
               "includeNullMetadata": false,
               "legendFormat": "__auto",
@@ -255,8 +253,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -327,8 +324,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -340,7 +336,7 @@
             "h": 7,
             "w": 6,
             "x": 0,
-            "y": 18
+            "y": 170
           },
           "id": 5,
           "options": {
@@ -391,8 +387,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -404,7 +399,7 @@
             "h": 7,
             "w": 6,
             "x": 6,
-            "y": 18
+            "y": 170
           },
           "id": 6,
           "options": {
@@ -455,8 +450,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -468,7 +462,7 @@
             "h": 7,
             "w": 6,
             "x": 12,
-            "y": 18
+            "y": 170
           },
           "id": 7,
           "options": {
@@ -519,8 +513,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -532,7 +525,7 @@
             "h": 7,
             "w": 6,
             "x": 18,
-            "y": 18
+            "y": 170
           },
           "id": 8,
           "options": {
@@ -582,8 +575,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -595,7 +587,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 25
+            "y": 177
           },
           "id": 41,
           "options": {
@@ -658,8 +650,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -671,7 +662,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 32
+            "y": 184
           },
           "id": 9,
           "options": {
@@ -763,8 +754,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -776,7 +766,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 32
+            "y": 184
           },
           "id": 11,
           "options": {
@@ -868,8 +858,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -881,7 +870,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 40
+            "y": 192
           },
           "id": 10,
           "options": {
@@ -973,8 +962,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -986,7 +974,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 40
+            "y": 192
           },
           "id": 12,
           "options": {
@@ -1084,8 +1072,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -1159,8 +1146,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -1204,7 +1190,7 @@
               },
               "disableTextWrap": false,
               "editorMode": "code",
-              "expr": "sum(costgraph_namespace_recommendation_current_spend - costgraph_namespace_recommendation_new_spend) by (cluster)",
+              "expr": "sum(costgraph_namespace_recommendation_total_resource_savings_amount) by (cluster)",
               "fullMetaSearch": false,
               "includeNullMetadata": false,
               "legendFormat": "__auto",
@@ -1233,8 +1219,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -1304,8 +1289,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -1317,7 +1301,7 @@
             "h": 8,
             "w": 8,
             "x": 0,
-            "y": 19
+            "y": 171
           },
           "id": 14,
           "options": {
@@ -1369,8 +1353,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -1382,7 +1365,7 @@
             "h": 8,
             "w": 8,
             "x": 8,
-            "y": 19
+            "y": 171
           },
           "id": 18,
           "options": {
@@ -1434,8 +1417,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "#EAB839",
@@ -1455,7 +1437,7 @@
             "h": 8,
             "w": 8,
             "x": 16,
-            "y": 19
+            "y": 171
           },
           "id": 16,
           "options": {
@@ -1507,8 +1489,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -1520,7 +1501,7 @@
             "h": 8,
             "w": 8,
             "x": 0,
-            "y": 27
+            "y": 179
           },
           "id": 15,
           "options": {
@@ -1572,8 +1553,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -1585,7 +1565,7 @@
             "h": 8,
             "w": 8,
             "x": 8,
-            "y": 27
+            "y": 179
           },
           "id": 19,
           "options": {
@@ -1637,8 +1617,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "#EAB839",
@@ -1658,7 +1637,7 @@
             "h": 8,
             "w": 8,
             "x": 16,
-            "y": 27
+            "y": 179
           },
           "id": 17,
           "options": {
@@ -1724,8 +1703,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -1792,8 +1770,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -1909,8 +1886,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2001,8 +1977,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2093,8 +2068,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2185,8 +2159,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2198,7 +2171,7 @@
             "h": 8,
             "w": 8,
             "x": 0,
-            "y": 21
+            "y": 173
           },
           "id": 26,
           "options": {
@@ -2277,8 +2250,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2290,7 +2262,7 @@
             "h": 8,
             "w": 8,
             "x": 8,
-            "y": 21
+            "y": 173
           },
           "id": 27,
           "options": {
@@ -2369,8 +2341,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2382,7 +2353,7 @@
             "h": 8,
             "w": 8,
             "x": 16,
-            "y": 21
+            "y": 173
           },
           "id": 28,
           "options": {
@@ -2475,8 +2446,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2567,8 +2537,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2578,32 +2547,7 @@
               },
               "unit": "cores"
             },
-            "overrides": [
-              {
-                "__systemRef": "hideSeriesFrom",
-                "matcher": {
-                  "id": "byNames",
-                  "options": {
-                    "mode": "exclude",
-                    "names": [
-                      "chat"
-                    ],
-                    "prefix": "All except:",
-                    "readOnly": true
-                  }
-                },
-                "properties": [
-                  {
-                    "id": "custom.hideFrom",
-                    "value": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": true
-                    }
-                  }
-                ]
-              }
-            ]
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
@@ -2688,8 +2632,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2780,8 +2723,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2793,7 +2735,7 @@
             "h": 8,
             "w": 8,
             "x": 0,
-            "y": 22
+            "y": 38
           },
           "id": 34,
           "options": {
@@ -2872,8 +2814,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2889,7 +2830,7 @@
             "h": 8,
             "w": 8,
             "x": 8,
-            "y": 22
+            "y": 38
           },
           "id": 35,
           "options": {
@@ -2968,8 +2909,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2981,7 +2921,7 @@
             "h": 8,
             "w": 8,
             "x": 16,
-            "y": 22
+            "y": 38
           },
           "id": 36,
           "options": {
@@ -3050,8 +2990,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -3063,7 +3002,7 @@
             "h": 11,
             "w": 12,
             "x": 0,
-            "y": 15
+            "y": 107
           },
           "id": 43,
           "options": {
@@ -3221,8 +3160,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -3234,7 +3172,7 @@
             "h": 11,
             "w": 12,
             "x": 12,
-            "y": 15
+            "y": 107
           },
           "id": 44,
           "options": {
@@ -3397,8 +3335,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -3410,7 +3347,7 @@
             "h": 11,
             "w": 12,
             "x": 0,
-            "y": 26
+            "y": 156
           },
           "id": 45,
           "options": {
@@ -3573,8 +3510,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -3586,7 +3522,7 @@
             "h": 11,
             "w": 12,
             "x": 12,
-            "y": 26
+            "y": 156
           },
           "id": 46,
           "options": {
@@ -3726,6 +3662,403 @@
       ],
       "title": "Rightsizing",
       "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 50,
+      "panels": [],
+      "title": "Resource Quotas",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "aefumpyvcfkzkf"
+      },
+      "description": "Maximum resource quota value for the namespace across all clusters.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "cores"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 52,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "aefumpyvcfkzkf"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "max(costgraph_namespace_recommendation_resource_quota_recommendations_cpu_current) by (namespace)",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Current CPU Quota ",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "aefumpyvcfkzkf"
+      },
+      "description": "Maximum resource quota value for the namespace across all clusters.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "cores"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 51,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "aefumpyvcfkzkf"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "max(costgraph_namespace_recommendation_resource_quota_recommendations_cpu_recommended) by (namespace)",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Recommended CPU Quota ",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "aefumpyvcfkzkf"
+      },
+      "description": "Maximum resource quota value for the namespace across all clusters.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "cores"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "id": 53,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "aefumpyvcfkzkf"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "max(costgraph_namespace_recommendation_resource_quota_recommendations_memory_current) by (namespace)",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Current Memory Quota ",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "aefumpyvcfkzkf"
+      },
+      "description": "Maximum resource quota value for the namespace across all clusters.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "decgbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "id": 54,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "aefumpyvcfkzkf"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "max(costgraph_namespace_recommendation_resource_quota_recommendations_memory_recommended) by (namespace)",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Recommended Memory Quota ",
+      "type": "barchart"
     }
   ],
   "preload": false,
@@ -3756,6 +4089,6 @@
   "timezone": "browser",
   "title": "Costgraph Dashboard",
   "uid": "defun0fw57fnkb",
-  "version": 25,
+  "version": 31,
   "weekStart": ""
 }
