@@ -1,4 +1,65 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "barchart",
+      "name": "Bar chart",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "11.5.2"
+    },
+    {
+      "type": "panel",
+      "id": "marcusolsson-treemap-panel",
+      "name": "Treemap",
+      "version": "2.0.1"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -19,14 +80,10 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 1,
+  "id": null,
   "links": [],
   "panels": [
     {
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
       "gridPos": {
         "h": 8,
         "w": 12,
@@ -48,10 +105,6 @@
       "type": "text"
     },
     {
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
       "gridPos": {
         "h": 8,
         "w": 12,
@@ -98,7 +151,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Aggregate current spend for the organization.",
           "fieldConfig": {
@@ -149,7 +202,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "disableTextWrap": false,
               "editorMode": "code",
@@ -169,7 +222,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Aggregate savings for the organization.",
           "fieldConfig": {
@@ -220,7 +273,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "disableTextWrap": false,
               "editorMode": "code",
@@ -239,7 +292,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Aggregate new spend for the organization.",
           "fieldConfig": {
@@ -290,7 +343,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "disableTextWrap": false,
               "editorMode": "builder",
@@ -309,7 +362,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "CPU requests used across the organization.",
           "fieldConfig": {
@@ -336,7 +389,7 @@
             "h": 7,
             "w": 6,
             "x": 0,
-            "y": 170
+            "y": 154
           },
           "id": 5,
           "options": {
@@ -363,7 +416,11 @@
               "expr": "sum(costgraph_namespace_recommendation_total_cpu_requests)",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Total CPU Requests",
@@ -372,7 +429,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "CPU llimits used across the organization.",
           "fieldConfig": {
@@ -399,7 +456,7 @@
             "h": 7,
             "w": 6,
             "x": 6,
-            "y": 170
+            "y": 154
           },
           "id": 6,
           "options": {
@@ -426,7 +483,11 @@
               "expr": "sum(costgraph_namespace_recommendation_total_cpu_limits)",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Total CPU Limits",
@@ -435,7 +496,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Memory requests used across the organization.",
           "fieldConfig": {
@@ -462,7 +523,7 @@
             "h": 7,
             "w": 6,
             "x": 12,
-            "y": 170
+            "y": 154
           },
           "id": 7,
           "options": {
@@ -489,7 +550,11 @@
               "expr": "sum(costgraph_namespace_recommendation_total_memory_requests)",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Total Memory Requests",
@@ -498,7 +563,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Memory limits used across the organization.",
           "fieldConfig": {
@@ -525,7 +590,7 @@
             "h": 7,
             "w": 6,
             "x": 18,
-            "y": 170
+            "y": 154
           },
           "id": 8,
           "options": {
@@ -552,7 +617,11 @@
               "expr": "sum(costgraph_namespace_recommendation_total_memory_limits)",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Total Memory Limits",
@@ -561,7 +630,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Details the monthly cost of all nodes in your organisation",
           "fieldConfig": {
@@ -587,7 +656,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 177
+            "y": 161
           },
           "id": 41,
           "options": {
@@ -619,7 +688,11 @@
               "instant": false,
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Aggregate Node Pricing",
@@ -628,7 +701,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Before and After observations of rightsizing values across clusters.",
           "fieldConfig": {
@@ -662,7 +735,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 184
+            "y": 168
           },
           "id": 9,
           "options": {
@@ -688,12 +761,16 @@
               "instant": true,
               "legendFormat": "",
               "range": false,
-              "refId": "Before"
+              "refId": "Before",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -732,7 +809,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Before and After observations of rightsizing values across clusters.",
           "fieldConfig": {
@@ -766,7 +843,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 184
+            "y": 168
           },
           "id": 11,
           "options": {
@@ -792,12 +869,16 @@
               "instant": true,
               "legendFormat": "",
               "range": false,
-              "refId": "Before"
+              "refId": "Before",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -836,7 +917,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Before and After observations of rightsizing values across clusters.",
           "fieldConfig": {
@@ -870,7 +951,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 192
+            "y": 176
           },
           "id": 10,
           "options": {
@@ -896,12 +977,16 @@
               "instant": true,
               "legendFormat": "__auto",
               "range": false,
-              "refId": "Before"
+              "refId": "Before",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -940,7 +1025,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Before and After observations of rightsizing values across clusters.",
           "fieldConfig": {
@@ -974,7 +1059,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 192
+            "y": 176
           },
           "id": 12,
           "options": {
@@ -1000,12 +1085,16 @@
               "instant": true,
               "legendFormat": "",
               "range": false,
-              "refId": "Before"
+              "refId": "Before",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -1058,7 +1147,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Aggregate current spend for the organization.",
           "fieldConfig": {
@@ -1112,7 +1201,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "disableTextWrap": false,
               "editorMode": "code",
@@ -1132,7 +1221,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Aggregate savings for the organization.",
           "fieldConfig": {
@@ -1186,7 +1275,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "disableTextWrap": false,
               "editorMode": "code",
@@ -1205,7 +1294,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Aggregate new spend for the organization.",
           "fieldConfig": {
@@ -1256,7 +1345,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "disableTextWrap": false,
               "editorMode": "code",
@@ -1275,7 +1364,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Describes the current CPU usage per cluster",
           "fieldConfig": {
@@ -1301,7 +1390,7 @@
             "h": 8,
             "w": 8,
             "x": 0,
-            "y": 171
+            "y": 155
           },
           "id": 14,
           "options": {
@@ -1330,7 +1419,11 @@
               "instant": false,
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "CPU Usage",
@@ -1339,7 +1432,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Describes the capacity per cluster across nodes backing the workloads.",
           "fieldConfig": {
@@ -1365,7 +1458,7 @@
             "h": 8,
             "w": 8,
             "x": 8,
-            "y": 171
+            "y": 155
           },
           "id": 18,
           "options": {
@@ -1394,7 +1487,11 @@
               "instant": false,
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "CPU Capacity",
@@ -1403,7 +1500,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Describes the current CPU usage percentage per cluster",
           "fieldConfig": {
@@ -1437,7 +1534,7 @@
             "h": 8,
             "w": 8,
             "x": 16,
-            "y": 171
+            "y": 155
           },
           "id": 16,
           "options": {
@@ -1466,7 +1563,11 @@
               "instant": false,
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "CPU Usage Percent",
@@ -1475,7 +1576,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Describes the current memory usage per cluster",
           "fieldConfig": {
@@ -1501,7 +1602,7 @@
             "h": 8,
             "w": 8,
             "x": 0,
-            "y": 179
+            "y": 163
           },
           "id": 15,
           "options": {
@@ -1530,7 +1631,11 @@
               "instant": false,
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Memory Usage",
@@ -1539,7 +1644,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Describes the capacity per cluster across nodes backing the workloads.",
           "fieldConfig": {
@@ -1565,7 +1670,7 @@
             "h": 8,
             "w": 8,
             "x": 8,
-            "y": 179
+            "y": 163
           },
           "id": 19,
           "options": {
@@ -1594,7 +1699,11 @@
               "instant": false,
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Memory Capacity",
@@ -1603,7 +1712,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Describes the current request usage per cluster",
           "fieldConfig": {
@@ -1637,7 +1746,7 @@
             "h": 8,
             "w": 8,
             "x": 16,
-            "y": 179
+            "y": 163
           },
           "id": 17,
           "options": {
@@ -1666,7 +1775,11 @@
               "instant": false,
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Memory Usage Percent",
@@ -1689,7 +1802,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Details the monthly cost of all nodes in your organisation",
           "fieldConfig": {
@@ -1747,7 +1860,11 @@
               "instant": false,
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Aggregate Node Pricing",
@@ -1756,7 +1873,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Details the monthly cost of nodes per cluster",
           "fieldConfig": {
@@ -1800,7 +1917,11 @@
               "expr": "((sum(costgraph_cluster_capacity_nodes_pricing_vcpu_cost) by (node, cluster)) + (sum(costgraph_cluster_capacity_nodes_pricing_ram_cost) by (node, cluster))) * 24 * 30",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Node Pricing",
@@ -1839,7 +1960,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Cost of workloads running in the namespace.",
           "fieldConfig": {
@@ -1921,7 +2042,11 @@
               "expr": "(sum(costgraph_namespace_recommendation_container_recommendations_cpu_current_total_cost_in_dollars) by (namespace)) + (sum(costgraph_namespace_recommendation_container_recommendations_memory_current_total_cost_in_dollars) by (namespace))",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Namespace Cost",
@@ -1930,7 +2055,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "CPU requests for the namespaces running across clusters.",
           "fieldConfig": {
@@ -2012,7 +2137,11 @@
               "expr": "(sum(costgraph_namespace_recommendation_container_recommendations_cpu_current_total_request) by (namespace))",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Namespace CPU Request",
@@ -2021,7 +2150,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Memory requests for the namespaces running across clusters.",
           "fieldConfig": {
@@ -2103,7 +2232,11 @@
               "expr": "(sum(costgraph_namespace_recommendation_container_recommendations_memory_current_total_request) by (namespace))",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Namespace Memory Request",
@@ -2112,7 +2245,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Cost savings of workloads running in the namespace.",
           "fieldConfig": {
@@ -2171,7 +2304,7 @@
             "h": 8,
             "w": 8,
             "x": 0,
-            "y": 173
+            "y": 157
           },
           "id": 26,
           "options": {
@@ -2194,7 +2327,11 @@
               "expr": "(sum(costgraph_namespace_recommendation_container_recommendations_savings_in_dollars) by (namespace))",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Namespace Cost Savings",
@@ -2203,7 +2340,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "CPU request savings for the namespaces running across clusters.",
           "fieldConfig": {
@@ -2262,7 +2399,7 @@
             "h": 8,
             "w": 8,
             "x": 8,
-            "y": 173
+            "y": 157
           },
           "id": 27,
           "options": {
@@ -2285,7 +2422,11 @@
               "expr": "(sum(costgraph_namespace_recommendation_container_recommendations_cpu_savings_request) by (namespace))",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Namespace CPU Request Savings",
@@ -2294,7 +2435,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Memory request savings for the namespaces running across clusters.",
           "fieldConfig": {
@@ -2353,7 +2494,7 @@
             "h": 8,
             "w": 8,
             "x": 16,
-            "y": 173
+            "y": 157
           },
           "id": 28,
           "options": {
@@ -2376,7 +2517,11 @@
               "expr": "(sum(costgraph_namespace_recommendation_container_recommendations_memory_savings_request) by (namespace))",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Namespace Memory Request Savings",
@@ -2399,7 +2544,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Cost of running a container across the namespaces and clusters it runs on.",
           "fieldConfig": {
@@ -2481,7 +2626,11 @@
               "expr": "(sum(costgraph_namespace_recommendation_container_recommendations_cpu_current_total_cost_in_dollars) by (container)) + (sum(costgraph_namespace_recommendation_container_recommendations_memory_current_total_cost_in_dollars) by (container))",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Workload Cost",
@@ -2490,7 +2639,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "CPU request of a container across the namespaces and clusters it runs on.",
           "fieldConfig": {
@@ -2576,7 +2725,11 @@
               "expr": "(sum(costgraph_namespace_recommendation_container_recommendations_cpu_current_total_request) by (container))",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Workload CPU Request",
@@ -2585,7 +2738,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Memory request of a container across the namespaces and clusters it runs on.",
           "fieldConfig": {
@@ -2667,7 +2820,11 @@
               "expr": "(sum(costgraph_namespace_recommendation_container_recommendations_memory_current_total_request) by (container))",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Workload Memory Request",
@@ -2676,7 +2833,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Cost  saving of running a container across the namespaces and clusters it runs on.",
           "fieldConfig": {
@@ -2735,7 +2892,7 @@
             "h": 8,
             "w": 8,
             "x": 0,
-            "y": 38
+            "y": 22
           },
           "id": 34,
           "options": {
@@ -2758,7 +2915,11 @@
               "expr": "(sum(costgraph_namespace_recommendation_container_recommendations_savings_in_dollars) by (container)) ",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Workload Cost Savings",
@@ -2767,7 +2928,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "CPU request savings of a container across the namespaces and clusters it runs on.",
           "fieldConfig": {
@@ -2830,7 +2991,7 @@
             "h": 8,
             "w": 8,
             "x": 8,
-            "y": 38
+            "y": 22
           },
           "id": 35,
           "options": {
@@ -2853,7 +3014,11 @@
               "expr": "(sum(costgraph_namespace_recommendation_container_recommendations_cpu_savings_total_request) by (container))",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Workload CPU Request Savings",
@@ -2862,7 +3027,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Memory request savings of a container across the namespaces and clusters it runs on.",
           "fieldConfig": {
@@ -2921,7 +3086,7 @@
             "h": 8,
             "w": 8,
             "x": 16,
-            "y": 38
+            "y": 22
           },
           "id": 36,
           "options": {
@@ -2944,7 +3109,11 @@
               "expr": "(sum(costgraph_namespace_recommendation_container_recommendations_memory_savings_total_request) by (container))",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             }
           ],
           "title": "Workload Memory Request Savings",
@@ -2967,7 +3136,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Minimum CPU rightsizing recommendations across clusters per workload.",
           "fieldConfig": {
@@ -3002,7 +3171,7 @@
             "h": 11,
             "w": 12,
             "x": 0,
-            "y": 107
+            "y": 91
           },
           "id": 43,
           "options": {
@@ -3029,12 +3198,16 @@
               "instant": true,
               "legendFormat": "",
               "range": false,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3049,7 +3222,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3064,7 +3237,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3079,7 +3252,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3094,7 +3267,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3137,7 +3310,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Maximum CPU rightsizing recommendations across clusters per workload.",
           "fieldConfig": {
@@ -3172,7 +3345,7 @@
             "h": 11,
             "w": 12,
             "x": 12,
-            "y": 107
+            "y": 91
           },
           "id": 44,
           "options": {
@@ -3204,12 +3377,16 @@
               "instant": true,
               "legendFormat": "",
               "range": false,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3224,7 +3401,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3239,7 +3416,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3254,7 +3431,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3269,7 +3446,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3312,7 +3489,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Minimum Memory rightsizing recommendations across clusters per workload.",
           "fieldConfig": {
@@ -3347,7 +3524,7 @@
             "h": 11,
             "w": 12,
             "x": 0,
-            "y": 156
+            "y": 140
           },
           "id": 45,
           "options": {
@@ -3379,12 +3556,16 @@
               "instant": true,
               "legendFormat": "",
               "range": false,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3399,7 +3580,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3414,7 +3595,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3429,7 +3610,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3444,7 +3625,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3487,7 +3668,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
+            "uid": "${DS_PROMETHEUS}"
           },
           "description": "Maximum memory rightsizing recommendations across clusters per workload.",
           "fieldConfig": {
@@ -3522,7 +3703,7 @@
             "h": 11,
             "w": 12,
             "x": 12,
-            "y": 156
+            "y": 140
           },
           "id": 46,
           "options": {
@@ -3554,12 +3735,16 @@
               "instant": true,
               "legendFormat": "",
               "range": false,
-              "refId": "A"
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3574,7 +3759,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3589,7 +3774,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3604,7 +3789,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3619,7 +3804,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "aefumpyvcfkzkf"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3664,7 +3849,7 @@
       "type": "row"
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3672,396 +3857,392 @@
         "y": 15
       },
       "id": 50,
-      "panels": [],
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "description": "Maximum resource quota value for the namespace across all clusters.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              },
+              "unit": "cores"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 92
+          },
+          "id": 52,
+          "options": {
+            "barRadius": 0,
+            "barWidth": 0.97,
+            "fullHighlight": false,
+            "groupWidth": 0.7,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "orientation": "auto",
+            "showValue": "auto",
+            "stacking": "none",
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            },
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 0
+          },
+          "pluginVersion": "11.5.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "max(costgraph_namespace_recommendation_resource_quota_recommendations_cpu_current) by (namespace)",
+              "format": "time_series",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "__auto",
+              "range": false,
+              "refId": "B"
+            }
+          ],
+          "title": "Current CPU Quota ",
+          "type": "barchart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "description": "Maximum resource quota value for the namespace across all clusters.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              },
+              "unit": "cores"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 92
+          },
+          "id": 51,
+          "options": {
+            "barRadius": 0,
+            "barWidth": 0.97,
+            "fullHighlight": false,
+            "groupWidth": 0.7,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "orientation": "auto",
+            "showValue": "auto",
+            "stacking": "none",
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            },
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 0
+          },
+          "pluginVersion": "11.5.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "max(costgraph_namespace_recommendation_resource_quota_recommendations_cpu_recommended) by (namespace)",
+              "format": "time_series",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "__auto",
+              "range": false,
+              "refId": "B"
+            }
+          ],
+          "title": "Recommended CPU Quota ",
+          "type": "barchart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "description": "Maximum resource quota value for the namespace across all clusters.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              },
+              "unit": "cores"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 100
+          },
+          "id": 53,
+          "options": {
+            "barRadius": 0,
+            "barWidth": 0.97,
+            "fullHighlight": false,
+            "groupWidth": 0.7,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "orientation": "auto",
+            "showValue": "auto",
+            "stacking": "none",
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            },
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 0
+          },
+          "pluginVersion": "11.5.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "max(costgraph_namespace_recommendation_resource_quota_recommendations_memory_current) by (namespace)",
+              "format": "time_series",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "__auto",
+              "range": false,
+              "refId": "B"
+            }
+          ],
+          "title": "Current Memory Quota ",
+          "type": "barchart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "description": "Maximum resource quota value for the namespace across all clusters.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              },
+              "unit": "decgbytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 100
+          },
+          "id": 54,
+          "options": {
+            "barRadius": 0,
+            "barWidth": 0.97,
+            "fullHighlight": false,
+            "groupWidth": 0.7,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "orientation": "auto",
+            "showValue": "auto",
+            "stacking": "none",
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            },
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 0
+          },
+          "pluginVersion": "11.5.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "max(costgraph_namespace_recommendation_resource_quota_recommendations_memory_recommended) by (namespace)",
+              "format": "time_series",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "__auto",
+              "range": false,
+              "refId": "B"
+            }
+          ],
+          "title": "Recommended Memory Quota ",
+          "type": "barchart"
+        }
+      ],
       "title": "Resource Quotas",
       "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "aefumpyvcfkzkf"
-      },
-      "description": "Maximum resource quota value for the namespace across all clusters.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "fillOpacity": 80,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineWidth": 1,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "cores"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 16
-      },
-      "id": 52,
-      "options": {
-        "barRadius": 0,
-        "barWidth": 0.97,
-        "fullHighlight": false,
-        "groupWidth": 0.7,
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "orientation": "auto",
-        "showValue": "auto",
-        "stacking": "none",
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "single",
-          "sort": "none"
-        },
-        "xTickLabelRotation": 0,
-        "xTickLabelSpacing": 0
-      },
-      "pluginVersion": "11.5.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "max(costgraph_namespace_recommendation_resource_quota_recommendations_cpu_current) by (namespace)",
-          "format": "time_series",
-          "hide": false,
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "B"
-        }
-      ],
-      "title": "Current CPU Quota ",
-      "type": "barchart"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "aefumpyvcfkzkf"
-      },
-      "description": "Maximum resource quota value for the namespace across all clusters.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "fillOpacity": 80,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineWidth": 1,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "cores"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 16
-      },
-      "id": 51,
-      "options": {
-        "barRadius": 0,
-        "barWidth": 0.97,
-        "fullHighlight": false,
-        "groupWidth": 0.7,
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "orientation": "auto",
-        "showValue": "auto",
-        "stacking": "none",
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "single",
-          "sort": "none"
-        },
-        "xTickLabelRotation": 0,
-        "xTickLabelSpacing": 0
-      },
-      "pluginVersion": "11.5.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "max(costgraph_namespace_recommendation_resource_quota_recommendations_cpu_recommended) by (namespace)",
-          "format": "time_series",
-          "hide": false,
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "B"
-        }
-      ],
-      "title": "Recommended CPU Quota ",
-      "type": "barchart"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "aefumpyvcfkzkf"
-      },
-      "description": "Maximum resource quota value for the namespace across all clusters.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "fillOpacity": 80,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineWidth": 1,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "cores"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 24
-      },
-      "id": 53,
-      "options": {
-        "barRadius": 0,
-        "barWidth": 0.97,
-        "fullHighlight": false,
-        "groupWidth": 0.7,
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "orientation": "auto",
-        "showValue": "auto",
-        "stacking": "none",
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "single",
-          "sort": "none"
-        },
-        "xTickLabelRotation": 0,
-        "xTickLabelSpacing": 0
-      },
-      "pluginVersion": "11.5.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "max(costgraph_namespace_recommendation_resource_quota_recommendations_memory_current) by (namespace)",
-          "format": "time_series",
-          "hide": false,
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "B"
-        }
-      ],
-      "title": "Current Memory Quota ",
-      "type": "barchart"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "aefumpyvcfkzkf"
-      },
-      "description": "Maximum resource quota value for the namespace across all clusters.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "fillOpacity": 80,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineWidth": 1,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "decgbytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 24
-      },
-      "id": 54,
-      "options": {
-        "barRadius": 0,
-        "barWidth": 0.97,
-        "fullHighlight": false,
-        "groupWidth": 0.7,
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "orientation": "auto",
-        "showValue": "auto",
-        "stacking": "none",
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "single",
-          "sort": "none"
-        },
-        "xTickLabelRotation": 0,
-        "xTickLabelSpacing": 0
-      },
-      "pluginVersion": "11.5.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "aefumpyvcfkzkf"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "max(costgraph_namespace_recommendation_resource_quota_recommendations_memory_recommended) by (namespace)",
-          "format": "time_series",
-          "hide": false,
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "B"
-        }
-      ],
-      "title": "Recommended Memory Quota ",
-      "type": "barchart"
     }
   ],
-  "preload": false,
   "refresh": "",
   "schemaVersion": 40,
   "tags": [
@@ -4082,7 +4263,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {},
