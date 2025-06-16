@@ -27,7 +27,7 @@
       "type": "panel",
       "id": "marcusolsson-treemap-panel",
       "name": "Treemap",
-      "version": "2.0.1"
+      "version": "2.1.1"
     },
     {
       "type": "datasource",
@@ -696,9 +696,9 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "(sum(costgraph_cluster_capacity_nodes_pricing_vcpu_cost * costgraph_cluster_capacity_nodes_cpu)  + sum(costgraph_cluster_capacity_nodes_pricing_ram_cost * costgraph_cluster_capacity_nodes_memory)) * 24 * 31",
+          "expr": "costgraph_cluster_capacity_nodes_pricing_cost_per_hour * 24 * 31",
           "instant": false,
-          "legendFormat": "__auto",
+          "legendFormat": "{{cluster}},{{node}}",
           "range": true,
           "refId": "A",
           "datasource": {
@@ -735,7 +735,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -843,7 +844,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -951,7 +953,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -1059,7 +1062,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -1143,7 +1147,7 @@
       "type": "table"
     },
     {
-      "collapsed": true,
+      "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1151,651 +1155,659 @@
         "y": 48
       },
       "id": 13,
-      "panels": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Aggregate current spend for the organization.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "decimals": 2,
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  }
-                ]
-              },
-              "unit": "currencyUSD"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 8,
-            "x": 0,
-            "y": 444
-          },
-          "id": 47,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": true,
-            "text": {
-              "valueSize": 40
-            },
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.5.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "expr": "sum(costgraph_namespace_recommendation_current_spend) by (cluster)",
-              "format": "time_series",
-              "fullMetaSearch": false,
-              "includeNullMetadata": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            }
-          ],
-          "title": "Current Spend",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Aggregate savings for the organization.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "decimals": 2,
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  }
-                ]
-              },
-              "unit": "currencyUSD"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 8,
-            "x": 8,
-            "y": 444
-          },
-          "id": 48,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": true,
-            "text": {
-              "valueSize": 40
-            },
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.5.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "expr": "sum(costgraph_namespace_recommendation_total_resource_savings_amount) by (cluster)",
-              "fullMetaSearch": false,
-              "includeNullMetadata": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            }
-          ],
-          "title": "Savings",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Aggregate new spend for the organization.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "decimals": 2,
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  }
-                ]
-              },
-              "unit": "currencyUSD"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 8,
-            "x": 16,
-            "y": 444
-          },
-          "id": 49,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": true,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.5.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "expr": "sum(costgraph_namespace_recommendation_new_spend) by (cluster)",
-              "fullMetaSearch": false,
-              "includeNullMetadata": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            }
-          ],
-          "title": "New Spend",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Describes the current CPU usage per cluster",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "decimals": 2,
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  }
-                ]
-              },
-              "unit": "cores"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 8,
-            "x": 0,
-            "y": 603
-          },
-          "id": 14,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.5.2",
-          "targets": [
-            {
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "sum(costgraph_namespace_recommendation_total_cpu_requests) by (cluster)",
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              }
-            }
-          ],
-          "title": "CPU Usage",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Describes the capacity per cluster across nodes backing the workloads.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "decimals": 2,
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  }
-                ]
-              },
-              "unit": "cores"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 8,
-            "x": 8,
-            "y": 603
-          },
-          "id": 18,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.5.2",
-          "targets": [
-            {
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "sum(costgraph_cluster_capacity_total_cpu) by (cluster)",
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              }
-            }
-          ],
-          "title": "CPU Capacity",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Describes the current CPU usage percentage per cluster",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "decimals": 2,
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  },
-                  {
-                    "color": "#EAB839",
-                    "value": 60
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "percentunit"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 8,
-            "x": 16,
-            "y": 603
-          },
-          "id": 16,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.5.2",
-          "targets": [
-            {
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "(sum(costgraph_namespace_recommendation_total_cpu_requests) by (cluster)) / (sum(costgraph_cluster_capacity_total_cpu) by (cluster))",
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              }
-            }
-          ],
-          "title": "CPU Usage Percent",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Describes the current memory usage per cluster",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "decimals": 2,
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  }
-                ]
-              },
-              "unit": "decgbytes"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 8,
-            "x": 0,
-            "y": 611
-          },
-          "id": 15,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.5.2",
-          "targets": [
-            {
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "sum(costgraph_namespace_recommendation_total_memory_requests) by (cluster)",
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              }
-            }
-          ],
-          "title": "Memory Usage",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Describes the capacity per cluster across nodes backing the workloads.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "decimals": 2,
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  }
-                ]
-              },
-              "unit": "decgbytes"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 8,
-            "x": 8,
-            "y": 611
-          },
-          "id": 19,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.5.2",
-          "targets": [
-            {
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "sum(costgraph_cluster_capacity_total_memory) by (cluster)",
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              }
-            }
-          ],
-          "title": "Memory Capacity",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Describes the current request usage per cluster",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "decimals": 2,
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  },
-                  {
-                    "color": "#EAB839",
-                    "value": 60
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "percentunit"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 8,
-            "x": 16,
-            "y": 611
-          },
-          "id": 17,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.5.2",
-          "targets": [
-            {
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "(sum(costgraph_namespace_recommendation_total_memory_requests) by (cluster)) / (sum(costgraph_cluster_capacity_total_memory) by (cluster))",
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              }
-            }
-          ],
-          "title": "Memory Usage Percent",
-          "type": "stat"
-        }
-      ],
+      "panels": [],
       "title": "Clusters",
       "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Aggregate current spend for the organization.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 49
+      },
+      "id": 47,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": true,
+        "text": {
+          "valueSize": 40
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "sum(costgraph_namespace_recommendation_current_spend) by (cluster)",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Current Spend",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Aggregate savings for the organization.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 49
+      },
+      "id": 48,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": true,
+        "text": {
+          "valueSize": 40
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "sum(costgraph_namespace_recommendation_total_resource_savings_amount) by (cluster)",
+          "fullMetaSearch": false,
+          "includeNullMetadata": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Savings",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Aggregate new spend for the organization.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 49
+      },
+      "id": 49,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": true,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "sum(costgraph_namespace_recommendation_new_spend) by (cluster)",
+          "fullMetaSearch": false,
+          "includeNullMetadata": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "New Spend",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Describes the current CPU usage per cluster",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "cores"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 57
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(costgraph_namespace_recommendation_total_cpu_requests) by (cluster)",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
+        }
+      ],
+      "title": "CPU Usage",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Describes the capacity per cluster across nodes backing the workloads.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "cores"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 57
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(costgraph_cluster_capacity_total_cpu) by (cluster)",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
+        }
+      ],
+      "title": "CPU Capacity",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Describes the current CPU usage percentage per cluster",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 57
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "(sum(costgraph_namespace_recommendation_total_cpu_requests) by (cluster)) / (sum(costgraph_cluster_capacity_total_cpu) by (cluster))",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
+        }
+      ],
+      "title": "CPU Usage Percent",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Describes the current memory usage per cluster",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "decgbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 65
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(costgraph_namespace_recommendation_total_memory_requests) by (cluster)",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
+        }
+      ],
+      "title": "Memory Usage",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Describes the capacity per cluster across nodes backing the workloads.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "decgbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 65
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(costgraph_cluster_capacity_total_memory) by (cluster)",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
+        }
+      ],
+      "title": "Memory Capacity",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Describes the current request usage per cluster",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 65
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "(sum(costgraph_namespace_recommendation_total_memory_requests) by (cluster)) / (sum(costgraph_cluster_capacity_total_memory) by (cluster))",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
+        }
+      ],
+      "title": "Memory Usage Percent",
+      "type": "stat"
     },
     {
       "collapsed": false,
@@ -1803,7 +1815,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 49
+        "y": 73
       },
       "id": 39,
       "panels": [],
@@ -1827,7 +1839,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -1839,7 +1852,7 @@
         "h": 15,
         "w": 12,
         "x": 0,
-        "y": 50
+        "y": 74
       },
       "id": 42,
       "options": {
@@ -1867,7 +1880,7 @@
         {
           "editorMode": "code",
           "exemplar": false,
-          "expr": "((sum(costgraph_cluster_capacity_nodes_pricing_vcpu_cost * costgraph_cluster_capacity_nodes_cpu) by (cluster) + sum(costgraph_cluster_capacity_nodes_pricing_ram_cost * costgraph_cluster_capacity_nodes_memory) by (cluster))) * 24 * 31",
+          "expr": "sum(costgraph_cluster_capacity_nodes_pricing_cost_per_hour * 24 * 31) by (cluster)",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -1898,7 +1911,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -1910,7 +1924,7 @@
         "h": 15,
         "w": 12,
         "x": 12,
-        "y": 50
+        "y": 74
       },
       "id": 40,
       "options": {
@@ -1921,11 +1935,11 @@
         "textField": "node",
         "tiling": "treemapSquarify"
       },
-      "pluginVersion": "2.0.1",
+      "pluginVersion": "2.1.1",
       "targets": [
         {
           "editorMode": "code",
-          "expr": "((sum(costgraph_cluster_capacity_nodes_pricing_vcpu_cost * costgraph_cluster_capacity_nodes_cpu) by (node, cluster)) + (sum(costgraph_cluster_capacity_nodes_pricing_ram_cost * costgraph_cluster_capacity_nodes_memory) by (node, cluster))) * 24 * 31",
+          "expr": "sum(costgraph_cluster_capacity_nodes_pricing_cost_per_hour * 24 * 31) by (node, cluster)",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A",
@@ -1960,7 +1974,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 65
+        "y": 89
       },
       "id": 20,
       "panels": [],
@@ -2017,7 +2031,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -2029,7 +2044,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 66
+        "y": 90
       },
       "id": 23,
       "options": {
@@ -2112,7 +2127,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -2124,7 +2140,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 66
+        "y": 90
       },
       "id": 24,
       "options": {
@@ -2207,7 +2223,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -2219,7 +2236,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 66
+        "y": 90
       },
       "id": 25,
       "options": {
@@ -2302,7 +2319,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -2314,7 +2332,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 74
+        "y": 98
       },
       "id": 26,
       "options": {
@@ -2397,7 +2415,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -2409,7 +2428,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 74
+        "y": 98
       },
       "id": 27,
       "options": {
@@ -2492,7 +2511,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -2504,7 +2524,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 74
+        "y": 98
       },
       "id": 28,
       "options": {
@@ -2543,7 +2563,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 82
+        "y": 106
       },
       "id": 29,
       "panels": [],
@@ -2600,7 +2620,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -2612,7 +2633,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 83
+        "y": 107
       },
       "id": 30,
       "options": {
@@ -2695,7 +2716,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2711,7 +2733,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 83
+        "y": 107
       },
       "id": 32,
       "options": {
@@ -2794,7 +2816,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -2806,7 +2829,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 83
+        "y": 107
       },
       "id": 33,
       "options": {
@@ -2889,7 +2912,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -2901,7 +2925,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 91
+        "y": 115
       },
       "id": 34,
       "options": {
@@ -2984,7 +3008,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -3000,7 +3025,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 91
+        "y": 115
       },
       "id": 35,
       "options": {
@@ -3083,7 +3108,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -3095,7 +3121,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 91
+        "y": 115
       },
       "id": 36,
       "options": {
@@ -3134,7 +3160,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 99
+        "y": 123
       },
       "id": 37,
       "panels": [],
@@ -3167,7 +3193,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -3179,7 +3206,7 @@
         "h": 11,
         "w": 12,
         "x": 0,
-        "y": 100
+        "y": 124
       },
       "id": 43,
       "options": {
@@ -3341,7 +3368,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -3353,7 +3381,7 @@
         "h": 11,
         "w": 12,
         "x": 12,
-        "y": 100
+        "y": 124
       },
       "id": 44,
       "options": {
@@ -3520,7 +3548,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -3532,7 +3561,7 @@
         "h": 11,
         "w": 12,
         "x": 0,
-        "y": 111
+        "y": 135
       },
       "id": 45,
       "options": {
@@ -3699,7 +3728,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -3711,7 +3741,7 @@
         "h": 11,
         "w": 12,
         "x": 12,
-        "y": 111
+        "y": 135
       },
       "id": 46,
       "options": {
@@ -3858,7 +3888,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 122
+        "y": 146
       },
       "id": 50,
       "panels": [],
@@ -3902,7 +3932,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -3914,7 +3945,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 123
+        "y": 147
       },
       "id": 52,
       "options": {
@@ -3997,7 +4028,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -4009,7 +4041,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 123
+        "y": 147
       },
       "id": 51,
       "options": {
@@ -4092,7 +4124,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -4104,7 +4137,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 131
+        "y": 155
       },
       "id": 53,
       "options": {
@@ -4187,7 +4220,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -4199,7 +4233,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 131
+        "y": 155
       },
       "id": 54,
       "options": {
@@ -4273,6 +4307,6 @@
   "timezone": "browser",
   "title": "Costgraph Dashboard",
   "uid": "defun0fw57fnkb",
-  "version": 36,
+  "version": 39,
   "weekStart": ""
 }
